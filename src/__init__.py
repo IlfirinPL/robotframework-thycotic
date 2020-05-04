@@ -8,7 +8,7 @@ import sys
 import requests
 import json
 import getpass
-from robot.api.deco import library
+from robot.api.deco import library, keyword
 import robot.api.logger as logger
 
 
@@ -62,24 +62,27 @@ class ThycoticLibrary:
 
         for item in secret["items"]:
             if item["isPassword"]:
-                return self.secretPw = item["itemValue"]
+                return item["itemValue"]
 
     @keyword
     def getSearchSecrets(self, searchText):
-        searchFilter = '?filter.includeRestricted=true&filter.includeSubFolders=true&filter.searchtext={}'.format(
-            searchText)
+        searchFilter = "?filter.includeRestricted=true&filter.includeSubFolders=true&filter.searchtext={}".format(
+            searchText
+        )
 
-        url = "https://{}{}/api/v1/secrets{}".format(self.serverFQDN, self.appPath, searchFilter)
+        url = "https://{}{}/api/v1/secrets{}".format(
+            self.serverFQDN, self.appPath, searchFilter
+        )
         headers = {
-            'authorization': "Bearer {}".format(self.token),
-            'Accept': 'application/json'
+            "authorization": "Bearer {}".format(self.token),
+            "Accept": "application/json",
         }
 
         response = requests.request("GET", url, headers=headers)
 
         self.allSecrets = json.loads(response.text)
         listOfSecrets = []
-        for secret in self.allSecrets['records']:
+        for secret in self.allSecrets["records"]:
             listOfSecrets.append(secret)
-            logger.info('Name={}->ID={}'.format(secret['name'], secret['id']))
+            logger.info("Name={}->ID={}".format(secret["name"], secret["id"]))
         return listOfSecrets
