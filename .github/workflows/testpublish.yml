@@ -1,6 +1,8 @@
 name: Upload Python Package Test PYPI
 
 on:
+  push:
+    branches: [master]
   label:
     types: [created, deleted]
 
