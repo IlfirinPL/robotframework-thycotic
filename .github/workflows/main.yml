@@ -1,8 +1,8 @@
-name: Upload Python Package Test PYPI
+name: Upload Python Package to pypi.org
 
 on:
-  label:
-    types: [created, deleted]
+  release:
+    types: [created]
 
 jobs:
   deploy:
@@ -20,7 +20,7 @@ jobs:
     - name: Build and publish
       env:
         TWINE_USERNAME: __token__
-        TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN_TEST }}
+        TWINE_PASSWORD: ${{ secrets.pypi_token }}
       run: |
         python setup.py sdist bdist_wheel
-        twine upload --repository-url https://test.pypi.org/legacy/ --verbose dist/* 
+        twine upload dist/*
