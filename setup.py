@@ -13,7 +13,7 @@ VERSION = "0.0.1.dev1"
 
 ROOT_DIR = dirname(abspath(__file__))
 SOURCE_DIR = "src"
-REQUIREMENTS = ["robotframework>=3.0", "requests"]
+REQUIREMENTS = ["robotframework>=3.2b1", "requests"]
 
 
 setup(
