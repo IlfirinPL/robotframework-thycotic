@@ -27,6 +27,7 @@ setup(
     download_url="https://github.com/IlfirinPL/robotframework-thycotic/",
     keywords=["robotframework", "thycotic"],
     package_dir={"": SOURCE_DIR},
+    package_data={"ThycoticLibrary": ["VERSION"]},
     install_requires=REQUIREMENTS,
     packages=find_packages(SOURCE_DIR),
 )

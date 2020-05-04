@@ -12,7 +12,7 @@ from robot.api.deco import library, keyword
 import robot.api.logger as logger
 
 
-@library(scope="GLOBAL", version="3.2b1")
+@library(scope="GLOBAL", version="3.2")
 class ThycoticLibrary:
     token = None
     client = None
