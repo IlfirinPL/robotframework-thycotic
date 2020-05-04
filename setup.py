@@ -7,27 +7,26 @@ import sys
 from os.path import abspath, join, dirname
 from setuptools import find_packages, setup
 
-sys.path.append(join(dirname(__file__), 'src'))
+sys.path.append(join(dirname(__file__), "src"))
 
-VERSION = '0.0.1.dev1'
+VERSION = "0.0.1.dev1"
 
 ROOT_DIR = dirname(abspath(__file__))
-SOURCE_DIR = 'src'
-REQUIREMENTS = ['robotframework>=3.0', 'suds']
+SOURCE_DIR = "src"
+REQUIREMENTS = ["robotframework>=3.0", "requests"]
 
 
 setup(
-    name='robotframework-thycotic',
+    name="robotframework-thycotic",
     version=VERSION,
-    description='RobotFramework Thycotic',
-    license='Apache License 2.0',
-    platforms='any',
-    author='Marcin Koperski',
-    author_email='marcin.koperski+pypi@gmail.com',
-    url='https://github.com/IlfirinPL/robotframework-thycotic/',
-    download_url='https://github.com/IlfirinPL/robotframework-thycotic/',
-    keywords=['robotframework', 'thycotic'],
-    package_dir={'': SOURCE_DIR},
+    description="RobotFramework Thycotic",
+    license="Apache License 2.0",
+    author="Marcin Koperski",
+    author_email="marcin.koperski+pypi@gmail.com",
+    url="https://github.com/IlfirinPL/robotframework-thycotic/",
+    download_url="https://github.com/IlfirinPL/robotframework-thycotic/",
+    keywords=["robotframework", "thycotic"],
+    package_dir={"": SOURCE_DIR},
     install_requires=REQUIREMENTS,
-    packages=find_packages(SOURCE_DIR)
+    packages=find_packages(SOURCE_DIR),
 )
